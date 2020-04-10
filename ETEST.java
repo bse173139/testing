@@ -3,58 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package emailtester;
 
-import emailtester.Emailtester;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
-import org.junit.runners.Parameterized;
+import java.util.regex.Pattern;
 
 /**
  *
  * @author Ameer
  */
-public class emailTest {
-    
-    public emailTest() {
+public class Emailtester {
+    public boolean emailvalid(String email){
+        return Pattern.matches("^[A-Za-z0-9+_.-]+@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}", email);
     }
-    
-    @Test
-    public void Testwrongdomain() {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
         Emailtester et=new Emailtester();
-        assertEquals(true,et.emailvalid("newemail@gmail.com"));
+        System.out.println(et.emailvalid("user@domain.com"));
     }
-    @Test
-    public void Testdotcomdomain() {
-        Emailtester et=new Emailtester();
-        assertNotEquals(true,et.emailvalid("newemail@gmail.k"));
-    }
-    @Test
-    public void Testnumberdotcomdomain() {
-        Emailtester et=new Emailtester();
-        assertFalse(et.emailvalid("newemail@gmail.111"));
-    }
-    @Test
-    public void Testspecialchar() {
-        Emailtester et=new Emailtester();
-        assertNotNull(et.emailvalid("newemail@gmail.com"));
-    }
-    @Test
-    public void Testnotsame() {
-        Emailtester et=new Emailtester();
-        assertNotSame(et.emailvalid("newemail@gmail.com"),et.emailvalid("newemail@&$%^^.com"));
-    }
-    @After
-    public void TestTrue() {
-        Emailtester et=new Emailtester();
-        assertTrue(et.emailvalid("newemail@gmail.com"));
-    }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+ 
 }
