@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author Abdul Moiz711
+ * @author Ameer
  */
 public class Emailtester {
     public boolean emailvalid(String email){
